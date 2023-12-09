@@ -7,30 +7,33 @@ const mondai = document.getElementById('question');
 const seleciao = document.getElementById('select');
 
 let cOn = 0
+let points = 0
 let title = "Title"
 let questions = ["Q1", "Q2", "Q3", "Q4"]
 let answers = ["A1", "A2", "A3", "A4"]
 
 let pressSound = new Audio('https://github.com/maykbrito/automatic-video-creator/blob/master/audios/button-press.wav?raw=true');
+let bgm = new Audio('../assets/bgm.mp3');
 pressSound.volume = 0.5;
+bgm.volume = 0.5;
 
 let initialIndex = Math.floor(Math.random() * questions.length)
 let question = questions[initialIndex];
 let correct = answers[initialIndex];
 
-content.innerHTML = `# Title
-## Q1
-A1
-## Q2
-A2
-## Q3
-A3
-## Q4
-A4
-## Q5
-A5
-## Q6
-A6`
+content.innerHTML = `# HTML Tags
+## What does the H1 tag do?
+Creates Heading 1
+## What does the p tag do?
+Creates a paragraph
+## What does the div tag do?
+Creates a container
+## What is the purpose of a body tag?
+Encloses all tags within
+## What does pouring water on your computer do?
+Kills your PC
+## Why should you use HTML?
+Makes websites`
 
 function playSound() {
     pressSound.currentTime = 0;
@@ -68,9 +71,6 @@ function submit() {
             answers.push(lines[i])
         }
     }
-    console.log(title)
-    console.log(questions)
-    console.log(answers)
 
     if (questions.length < 4 || answers.length < 4 || answers.length != questions.length) {
 
@@ -78,8 +78,10 @@ function submit() {
         create()
         main.style.display = 'none';
         quiz.style.display = 'flex';
+        ogQ = questions.slice()
 
         quizTime()
+        bgm.play()
     }
 }
 
@@ -111,22 +113,71 @@ function quizTime() {
 }
 
 function check(ans) {
+    playSound()
+    mondai.innerHTML = ""
+    seleciao.innerHTML = ""
     if(ans == correct){
-        questions.splice(initialIndex, 1)
-        answers.splice(initialIndex, 1)
-        answers.push(correct)
+        points++
+        let correctText = mondai.appendChild(document.createElement("h2"));
+        correctText.innerHTML = "Correct Answer!";
+        correctText.style.color = "rgb(0, 255, 0)";
+        mondai.appendChild(document.createElement("br"))
+        mondai.appendChild(document.createElement("h2")).innerHTML = `Question: ${question}`
+        mondai.appendChild(document.createElement("h2")).innerHTML = `Answer: ${correct}`
 
-        if(questions.length == 0){
-            finish()
-        } else{
-            initialIndex = Math.floor(Math.random() * questions.length)
-            question = questions[initialIndex];
-            correct = answers[initialIndex];
-            quizTime()
-        }
+        let button = document.createElement("button");
+        button.innerHTML = "Next";
+        button.setAttribute("onclick", "next()")
+        seleciao.appendChild(button);
+    } else if(ans != correct) {
+        let correctText = mondai.appendChild(document.createElement("h2"));
+        correctText.innerHTML = "Wrong Answer!";
+        correctText.style.color = "rgb(255, 0, 0)";
+        mondai.appendChild(document.createElement("br"))
+        mondai.appendChild(document.createElement("h2")).innerHTML = `Question: ${question}`
+        mondai.appendChild(document.createElement("h2")).innerHTML = `Answer: ${correct}`
+
+        let button = document.createElement("button");
+        button.innerHTML = "Next";
+        button.setAttribute("onclick", "next()")
+        seleciao.appendChild(button);
+    }
+}
+
+function next(){
+    questions.splice(initialIndex, 1)
+    answers.splice(initialIndex, 1)
+    answers.push(correct)
+
+    if(questions.length == 0){
+        finish()
+    } else{
+        initialIndex = Math.floor(Math.random() * questions.length)
+        question = questions[initialIndex];
+        correct = answers[initialIndex];
+        quizTime()
     }
 }
 
 function finish(){
-    
+    bgm.stop()
+    playSound()
+    mondai.innerHTML = ""
+    seleciao.innerHTML = ""
+
+    mondai.appendChild(document.createElement("h2")).innerHTML = "Quiz Completed!"
+    mondai.appendChild(document.createElement("br"))
+    mondai.appendChild(document.createElement("h2")).innerHTML = `Your Score: ${points}/${ogQ.length}`
+
+    let button = document.createElement("button");
+    button.innerHTML = "Return to Home";
+    button.setAttribute("onclick", "back()")
+    seleciao.appendChild(button);
+}
+
+function back(){
+    playSound()
+    points = 0
+    main.style.display = 'flex';
+    quiz.style.display = 'none';
 }
