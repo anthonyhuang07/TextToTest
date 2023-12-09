@@ -69,11 +69,13 @@ main button:hover {
 main h1 {
     font-size: 6em;
     font-weight: 900;
+    text-align: center;
 }
 
 main h2 {
     font-size: 2em;
     font-weight: 800;
+    text-align: center;
 }
 
 @keyframes appear {
@@ -135,6 +137,62 @@ main h2 {
     font-weight: 300;
 }
 
+#about {
+    position: absolute;
+    background-color: #3C096C;
+    width: 80%;
+    height: 80%;
+    border-radius: 1rem;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    transition: display 0.5s;
+    animation-name: appear;
+    animation-duration: 0.25s;
+    animation-timing-function: ease;
+}
+
+#about h1 {
+    font-size: 4em;
+}
+
+#about p {
+    font-weight: 300;
+    font-size: 1.5em;
+    margin: 0 2rem 0 2rem;
+    text-align: center;
+}
+
+#help {
+    position: absolute;
+    background-color: #3C096C;
+    width: 80%;
+    height: 80%;
+    border-radius: 1rem;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    transition: display 0.5s;
+    animation-name: appear;
+    animation-duration: 0.25s;
+    animation-timing-function: ease;
+}
+
+#help h1 {
+    font-size: 4em;
+}
+
+#help p {
+    font-weight: 300;
+    font-size: 1.5em;
+    margin: 0 2rem 0 2rem;
+    text-align: left;
+}
+
 .buttons {
     display: flex;
     justify-content: center;
@@ -171,6 +229,7 @@ main h2 {
 #quiz h1{
     font-size: 4em;
     margin: 2rem;
+    text-align: center;
 }
 
 #quiz #question {
@@ -186,6 +245,10 @@ main h2 {
     flex-direction: column;
 }
 
+#quiz #question h2 {
+    margin: 0 2rem 0 2rem;
+}
+
 #quiz #select button{
     background-color: #240046;
     font-family: "Lexend Deca", sans-serif;
@@ -198,4 +261,43 @@ main h2 {
     margin: 1.5rem 0.5rem 1.5rem 0.5rem;
     transition: background-color 0.25s;
     cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    main h1{
+        font-size: 3em;
+    }
+
+    main h2{
+        font-size: 1.5em;
+    }
+
+    main nav{
+        width: 80%;
+        align-items: center;
+    } main button {
+        padding: 0 1rem 0 1rem;
+    }
+
+    .buttons button {
+        margin: 1.5rem 0.25rem 1.5rem 0.25rem;
+    }
+
+    #quiz {
+        height: auto;
+    }
+
+    #quiz h1 {
+        font-size: 3em;
+    } #quiz #question h2 {
+        font-size: 0.75em;
+        margin: 2rem;
+    } #quiz #question{
+        margin-bottom: 1rem;
+    } #quiz #select {
+        display: flex;
+        flex-direction: column;
+    } #quiz #select button {
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
 }

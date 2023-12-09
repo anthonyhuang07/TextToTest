@@ -9,7 +9,9 @@
     <meta content="TextToTest" property="og:title" />
     <meta content="Your Texts, Your Quizzes." property="og:description" />
     <meta content="ah07.xyz/TextToTest" property="og:url" />
-    <meta content="png" property="og:image" />
+    <meta content="./assets/logo.png" property="og:image" />
+
+    <link rel="icon" type="image/x-icon" href="./assets/logo.png">
 
     <link rel="stylesheet" href="./src/main.css">
 
@@ -17,7 +19,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -26,18 +30,37 @@
         <h2>Your Texts, Your Quizzes.</h2>
         <nav>
             <button type="button" onclick="create()">Create</button>
-            <button type="button" onclick="about()">About</button>
+            <button type="button" onclick="aboutOpen()">About</button>
             <button type="button" onclick="help()">Help</button>
         </nav>
     </main>
     <div id="cover"></div>
     <div id="create">
-        <h1>Create</h1>
+        <h1>Create your Quiz!</h1>
         <textarea id="content"></textarea>
         <div class="buttons">
             <button type="button" onclick="create()">Cancel</button>
-            <button type="button" onclick="help()">Help</button>
             <button type="button" onclick="submit()">Submit</button>
+        </div>
+    </div>
+    <div id="about">
+        <h1>About TextToTest</h1>
+        <p>TextToTest was made solo by Anthony Huang in 2023 for the Hack the Ridge Hackathon at Iroquois Ridge High
+            School. The theme was Education Innovation.<br><br>TextToTest is a website that creates a quiz for you out
+            of questions and answers that you input with Markdown input. Written in HTML, CSS and JS.<br><br>Quiz makers
+            usually require you to enter multiple answers to one question, and require a convoluted UI to create these
+            quizzes. TextToTest makes this all text based, while matching answers to the questions for you.</p>
+        <div class="buttons">
+            <button type="button" onclick="aboutOpen()">Close</button>
+        </div>
+    </div>
+    <div id="help">
+        <h1>How do I use TextToTest?</h1>
+        <p>TextToTest follows Markdown syntax.<br><br># creates a title, which you must put on the first line. ## creates a question. Regular text makes an answer. You should follow a question with an answer on a new
+            line.<br><br>If you'd like to add extra fake answers, please add them at the end of everything. There must
+            also be a minimum of 4 questions and 4 answers.<br><br>Example:<br># Quiz<br>## How many minutes is in 1 hour?<br>60 minutes</p>
+        <div class="buttons">
+            <button type="button" onclick="help()">Close</button>
         </div>
     </div>
     <div id="quiz">

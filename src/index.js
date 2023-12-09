@@ -1,4 +1,7 @@
 const createPg = document.getElementById('create');
+const aboutPg = document.getElementById('about');
+const helpPg = document.getElementById('help');
+
 const main = document.querySelector('main');
 const cover = document.getElementById('cover');
 const content = document.getElementById('content');
@@ -9,8 +12,8 @@ const seleciao = document.getElementById('select');
 let cOn = 0
 let points = 0
 let title = "Title"
-let questions = ["Q1", "Q2", "Q3", "Q4"]
-let answers = ["A1", "A2", "A3", "A4"]
+let questions = []
+let answers = []
 
 let pressSound = new Audio('https://github.com/maykbrito/automatic-video-creator/blob/master/audios/button-press.wav?raw=true');
 let bgm = new Audio('https://github.com/anthonyhuang07/TextToTest/blob/main/assets/bgm.mp3?raw=true');
@@ -54,6 +57,32 @@ function create() {
     }
 }
 
+function aboutOpen() {
+    playSound()
+    if (cOn == 0) {
+        aboutPg.style.display = 'flex';
+        cover.style.display = 'block';
+        cOn = 1;
+    } else if (cOn == 1) {
+        aboutPg.style.display = 'none';
+        cover.style.display = 'none';
+        cOn = 0;
+    }
+}
+
+function help(){
+    playSound()
+    if (cOn == 0) {
+        helpPg.style.display = 'flex';
+        cover.style.display = 'block';
+        cOn = 1;
+    } else if (cOn == 1) {
+        helpPg.style.display = 'none';
+        cover.style.display = 'none';
+        cOn = 0;
+    }
+}
+
 function submit() {
     playSound()
     title = ""
@@ -73,7 +102,7 @@ function submit() {
         }
     }
 
-    if (questions.length < 4 || answers.length < 4 || answers.length != questions.length) {
+    if (questions.length < 4 || answers.length < 4 || answers.length < questions.length) {
 
     } else {
         create()
@@ -89,6 +118,11 @@ function submit() {
 
 function quizTime() {
     playSound()
+
+    initialIndex = Math.floor(Math.random() * questions.length);
+    question = questions[initialIndex];
+    correct = answers[initialIndex];
+
     mondai.innerHTML = ""
     seleciao.innerHTML = ""
 
@@ -162,7 +196,7 @@ function next(){
 }
 
 function finish(){
-    bgm.stop()
+    bgm.pause()
     playSound()
     mondai.innerHTML = ""
     seleciao.innerHTML = ""
