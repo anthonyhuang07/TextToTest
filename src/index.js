@@ -11,6 +11,7 @@ const seleciao = document.getElementById('select');
 
 let cOn = 0
 let points = 0
+let turn = 0
 let title = "Title"
 let questions = []
 let answers = []
@@ -103,6 +104,7 @@ function submit() {
 }
 
 function quizTime() {
+    turn++
     playSound()
 
     initialIndex = Math.floor(Math.random() * questions.length);
@@ -112,7 +114,7 @@ function quizTime() {
     mondai.innerHTML = ""
     seleciao.innerHTML = ""
 
-    quiz.querySelector("h1").innerHTML = title;
+    quiz.querySelector("h1").innerHTML = `${title} (${turn}/${ogQ.length})`;
     mondai.appendChild(document.createElement("h2")).innerHTML = question
 
     let tempAnswers = answers.slice()
@@ -200,6 +202,7 @@ function finish(){
 function back(){
     playSound()
     points = 0
+    turn = 0
     main.style.display = 'flex';
     quiz.style.display = 'none';
 }
