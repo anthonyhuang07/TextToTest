@@ -283,6 +283,15 @@ main h2 {
         margin: 1.5rem 0.25rem 1.5rem 0.25rem;
     }
 
+    #create h1, #about h1, #help h1{
+        font-size: 2em;
+        text-align: center;
+    }
+
+    #about, #help {
+        height: auto;
+    }
+
     #quiz {
         height: auto;
     }
