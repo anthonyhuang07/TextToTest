@@ -1,0 +1,62 @@
+*,
+*:after,
+*:before {
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    position: relative;
+    height: 100%;
+}
+
+body{
+    min-height: 100vh;
+    background-color: #240046;
+    font-family: "Lexend Deca", sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://steamuserimages-a.akamaihd.net/ugc/1678120729579339650/40A46978EF29C7099912D8CA459BBC9FAC764F2E/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false");
+    background-position: center;
+    background-repeat: no-repeat;   
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+main nav {
+    display: flex;
+    background-color: #3C096C;
+    padding: 1rem;
+    width: 40%;
+    border-radius: 2rem;
+    justify-content: space-evenly;  
+    font-size: 1.5em;
+    font-weight: 400;
+    margin: 1rem;
+}
+
+main h1 {
+    font-size: 6em;
+    font-weight: 900;
+}
+
+main h2 {
+    font-size: 2em;
+    font-weight: 800;
+}
