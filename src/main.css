@@ -280,11 +280,20 @@ main h2 {
     }
 
     .buttons button {
-        margin: 1.5rem 0.25rem 1.5rem 0.25rem;
+        margin: 1rem 0.25rem 1rem 0.25rem;
     }
 
     #create h1, #about h1, #help h1{
         font-size: 2em;
+        text-align: center;
+    }
+
+    #about h1, #help h1{
+        margin: 1rem 0 1rem 0;
+    }
+
+    #about p, #help p{
+        font-size: 1em;
         text-align: center;
     }
 

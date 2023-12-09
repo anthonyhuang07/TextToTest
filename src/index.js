@@ -25,20 +25,6 @@ let initialIndex = Math.floor(Math.random() * questions.length)
 let question = questions[initialIndex];
 let correct = answers[initialIndex];
 
-content.innerHTML = `# HTML Tags
-## What does the H1 tag do?
-Creates Heading 1
-## What does the p tag do?
-Creates a paragraph
-## What does the div tag do?
-Creates a container
-## What is the purpose of a body tag?
-Encloses all tags within
-## What does pouring water on your computer do?
-Kills your PC
-## Why should you use HTML?
-Makes websites`
-
 function playSound() {
     pressSound.currentTime = 0;
     pressSound.play();
@@ -97,7 +83,7 @@ function submit() {
         }
         if (lines[i].startsWith("## ")) {
             questions.push(lines[i].replace("## ", ""))
-        } else {
+        } else if (lines[i] != "") {
             answers.push(lines[i])
         }
     }
