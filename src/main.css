@@ -14,14 +14,10 @@ html {
     height: 100%;
 }
 
-body{
+body {
     min-height: 100vh;
-    background-color: #240046;
+    background-color: #3C096C;
     font-family: "Lexend Deca", sans-serif;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://steamuserimages-a.akamaihd.net/ugc/1678120729579339650/40A46978EF29C7099912D8CA459BBC9FAC764F2E/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false");
-    background-position: center;
-    background-repeat: no-repeat;   
-    background-size: cover;
     position: relative;
     display: flex;
     justify-content: center;
@@ -30,6 +26,11 @@ body{
 }
 
 main {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://steamuserimages-a.akamaihd.net/ugc/1678120729579339650/40A46978EF29C7099912D8CA459BBC9FAC764F2E/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -43,12 +44,26 @@ main nav {
     display: flex;
     background-color: #3C096C;
     padding: 1rem;
-    width: 40%;
+    width: 35%;
     border-radius: 2rem;
-    justify-content: space-evenly;  
+    justify-content: center;
+    margin: 1rem;
+}
+
+main button {
     font-size: 1.5em;
     font-weight: 400;
-    margin: 1rem;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: "Lexend Deca", sans-serif;
+    transition: text-shadow 0.25s;
+    cursor: pointer;
+    padding: 0 1.5rem 0 1.5rem;
+}
+
+main button:hover {
+    text-shadow: 0.5px 0.5px 10px #fff, 0.5px 0.5px 10px #ccc;
 }
 
 main h1 {
@@ -59,4 +74,127 @@ main h1 {
 main h2 {
     font-size: 2em;
     font-weight: 800;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#cover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    display: none;
+    transition: display 0.5s;
+    animation-name: appear;
+    animation-duration: 0.25s;
+    animation-timing-function: ease;
+}
+
+#create {
+    position: absolute;
+    background-color: #3C096C;
+    width: 80%;
+    height: 80%;
+    border-radius: 1rem;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    transition: display 0.5s;
+    animation-name: appear;
+    animation-duration: 0.25s;
+    animation-timing-function: ease;
+}
+
+#create h1{
+    font-size: 4em;
+    margin: 2rem;
+}
+
+#create textarea {
+    height: 75%;
+    width: 75%;
+    overflow: auto;
+    background-color: #240046;
+    border-radius: 1rem;
+    border: none;
+    resize: none;
+    color: white;
+    padding: 2rem;
+    font-size: 1.1em;
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 300;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons button{
+    background-color: #240046;
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 400;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1.25em;
+    margin: 1.5rem 0.5rem 1.5rem 0.5rem;
+    transition: background-color 0.25s;
+    cursor: pointer;
+}
+
+.buttons button:hover{
+    background-color: #10002B;
+}
+
+#quiz {
+    display: none;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+}
+
+#quiz h1{
+    font-size: 4em;
+    margin: 2rem;
+}
+
+#quiz #question {
+    display: flex;
+    background-color: #240046;
+    width: 75%;
+    height: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    border-radius: 1rem;
+}
+
+#quiz #select button{
+    background-color: #240046;
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 400;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1.25em;
+    margin: 1.5rem 0.5rem 1.5rem 0.5rem;
+    transition: background-color 0.25s;
+    cursor: pointer;
 }

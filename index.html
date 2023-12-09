@@ -25,11 +25,26 @@
         <h1>TextToTest</h1>
         <h2>Your Texts, Your Quizzes.</h2>
         <nav>
-            <button type="button">Create</button>
-            <button type="button">About</button>
-            <button type="button">Help</button>
+            <button type="button" onclick="create()">Create</button>
+            <button type="button" onclick="about()">About</button>
+            <button type="button" onclick="help()">Help</button>
         </nav>
     </main>
+    <div id="cover"></div>
+    <div id="create">
+        <h1>Create</h1>
+        <textarea id="content"></textarea>
+        <div class="buttons">
+            <button type="button" onclick="create()">Cancel</button>
+            <button type="button" onclick="help()">Help</button>
+            <button type="button" onclick="submit()">Submit</button>
+        </div>
+    </div>
+    <div id="quiz">
+        <h1></h1>
+        <div id="question"></div>
+        <div id="select"></div>
+    </div>
     <script src="./src/index.js"></script>
 </body>
 
