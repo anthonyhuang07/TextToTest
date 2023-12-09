@@ -13,9 +13,10 @@ let questions = ["Q1", "Q2", "Q3", "Q4"]
 let answers = ["A1", "A2", "A3", "A4"]
 
 let pressSound = new Audio('https://github.com/maykbrito/automatic-video-creator/blob/master/audios/button-press.wav?raw=true');
-let bgm = new Audio('../assets/bgm.mp3');
+let bgm = new Audio('https://github.com/anthonyhuang07/TextToTest/blob/main/assets/bgm.mp3?raw=true');
 pressSound.volume = 0.5;
 bgm.volume = 0.5;
+bgm.loop = true;
 
 let initialIndex = Math.floor(Math.random() * questions.length)
 let question = questions[initialIndex];
@@ -81,6 +82,7 @@ function submit() {
         ogQ = questions.slice()
 
         quizTime()
+        bgm.currentTime = 0;
         bgm.play()
     }
 }
